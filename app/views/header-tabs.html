@@ -1,0 +1,26 @@
+ <div jquery-mobile-tpl >
+      <div data-role="header" class="header">
+              <h1>Media Data Demo</h1>
+          
+               <div data-role="navbar" data-iconpos="right">
+                          <ul>
+                            <li ng-class="{ active:tab.isSet(1) }"><a href="" ng-click="tab.setTab(1)" >
+                              <span class="icon-home3"></span><br>
+                                 Home
+                            </a></li>
+                            <li ng-class="{ active:tab.isSet(2) }"><a href="" ng-click="tab.setTab(2)">
+                                <span class="icon-pencil2"></span><br>
+                                New Entry</a>
+                            </li>
+                            <li ng-class="{ active:tab.isSet(3) }"><a href="" ng-click="tab.setTab(3)">
+                                <span class="icon-users"></span><br>
+                                Users</a>
+                            </li>
+                          </ul>
+                </div>
+      </div>
+      <div data-role="main" class="ui-content">
+              <list-entries ng-show="tab.isSet(1)"></list-entries>
+              <new-entry ng-show="tab.isSet(2)"></new-entry>
+      </div>
+  </div>

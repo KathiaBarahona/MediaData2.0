@@ -1,0 +1,30 @@
+<div jquery-mobile-tpl >
+	<form>
+  <div class="ui-fieldcontain">
+    <label>Media: </label>
+    <select data-theme="c" ng-model="entry.media">
+      <option>Internet</option>
+      <option>Television</option>
+      <option>Radio</option>
+      <option>Movies</option>
+      <option>Radio</option>
+      <option>Newspaper</option>
+    </select>
+    <br><br>
+     <label>Channel: </label>
+    <input type="text" name="text" id="name" placeholder="Channel.." data-theme="c" ng-model="entry.channel">
+    <br><br>
+     <label >Initial Hour:</label>
+    <input name="mode9" id="mode9" type="text" data-role="datebox" data-options="{&quot;mode&quot;:&quot;timebox&quot;}" readonly="readonly" ng-model="entry.h_inicio"><br><br>
+     <label >Final Hour:</label>
+    <input name="mode9" id="mode9" type="text" data-role="datebox" data-options="{&quot;mode&quot;:&quot;timebox&quot;}" readonly="readonly" ng-model="entry.h_final"><br><br>
+    <label>Location: </label>
+    <select data-theme="c" ng-model="entry.location">
+      <option>Home</option>
+      <option>Work</option>
+      <option>Other</option>
+    </select>
+  </div>
+    <button ng-click = "addEntry()"  class ='btn btn-primary'>Create Entry</button>
+  </form>
+</div>
