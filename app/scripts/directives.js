@@ -29,7 +29,7 @@ var controller = ['$scope','$http',function($scope,$http){
               };
               $scope.addEntry = function(){
                  console.log($scope.entry);
-                 $http.post(url+'/registros',$scope.entry).success(function(response){
+                 $http.post(url+'/registro',$scope.entry).success(function(response){
                           console.log(response);
                           getEntries();
                  });
