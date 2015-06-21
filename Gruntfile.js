@@ -8,7 +8,20 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
-
+  buildcontrol: {
+    options: {
+        dir: 'dist',
+        commit: true,
+        push: true,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+    },
+    heroku: {
+        options: {
+            remote: 'git@heroku.com:heroku-app-mediadataapp.git',
+            branch: 'master'
+        }
+    }
+ }
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
@@ -135,18 +148,22 @@ module.exports = function (grunt) {
     },
 
     // Empties folders to start fresh
-    clean: {
-      dist: {
+   clean: {
+    dist: {
         files: [{
-          dot: true,
-          src: [
-            '.tmp',
-            '<%= yeoman.dist %>/{,*/}*',
-            '!<%= yeoman.dist %>/.git{,*/}*'
-          ]
+            dot: true,
+            src: [
+                '.tmp',
+                '<%= yeoman.dist %>/*',
+                '!<%= yeoman.dist %>/.git{,*/}*',
+                '!<%= yeoman.dist %>/Procfile',
+                '!<%= yeoman.dist %>/package.json',
+                '!<%= yeoman.dist %>/web.js',
+                '!<%= yeoman.dist %>/node_modules'
+           ]
         }]
-      },
-      server: '.tmp'
+    },
+    server: '.tmp'
     },
 
     // Add vendor prefixed styles
@@ -388,7 +405,7 @@ module.exports = function (grunt) {
       }
     }
   });
-
+  grunt.registerTask('deploy', ['buildcontrol']);
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
