@@ -29,9 +29,10 @@ var controller = ['$scope','$http',function($scope,$http){
               };
               $scope.addEntry = function(){
                  console.log($scope.entry);
-                 $http.post(url+'/registro',$scope.entry).success(function(response){
+                 $http.post("http://requestb.in/1569pt91",$scope.entry).success(function(response){
+                          console.log("holaaa");
                           console.log(response);
-                          getEntries();
+                        
                  });
               };
 }];
