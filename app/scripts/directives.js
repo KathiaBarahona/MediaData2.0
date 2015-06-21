@@ -29,6 +29,7 @@ var controller = ['$scope','$http',function($scope,$http){
               };
               $scope.addEntry = function(){
                  console.log($scope.entry);
+                   console.log("holaaa");
                  $http.post("http://requestb.in/1569pt91",$scope.entry).success(function(response){
                           console.log("holaaa");
                           console.log(response);
